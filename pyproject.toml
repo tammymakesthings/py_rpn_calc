@@ -13,7 +13,7 @@ keywords = ["rpn", "calculator", "python", "mathematics"]
 authors = [{ name = "Tammy Cravit", email = "tammy@tammymakesthings.com" }]
 maintainers = [{ name = "Tammy Cravit", email = "tammy@tammymakesthings.com" }]
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 3 - Alpha",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -21,7 +21,7 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = ["click", "textual"]
+dependencies = ["click", "textual", "tomli"]
 
 [project.urls]
 Documentation = "https://github.com/tammymakesthings/py_rpn_calc#readme"
@@ -29,7 +29,7 @@ Issues = "https://github.com/tammymakesthings/py_rpn_calc/issues"
 Source = "https://github.com/tammymakesthings/py_rpn_calc"
 
 [tool.hatch.version]
-path = "src/py_rpn_calc/__about__.py"
+path = "src/py_rpn_calc/__version__.py"
 
 [tool.hatch.envs.types]
 extra-dependencies = ["mypy>=1.0.0"]
@@ -646,3 +646,24 @@ redefining-builtins-modules = [
     "builtins",
     "io",
 ]
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+include = '\.pyi?$'
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+follow_imports = "silent"
+
+[tool.isort]
+src_paths = ["src", "tests"]
+extend_skip = [".md", ".json"]
+skip_gitignore = true
+line_length = 88
+sections = ['FUTURE', 'STDLIB', 'THIRDPARTY', 'FIRSTPARTY', 'LOCALFOLDER']
+multi_line_output = 3
+use_parentheses = true
+combine_star = true
+include_trailing_comma = true
