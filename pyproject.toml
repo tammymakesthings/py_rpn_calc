@@ -1,0 +1,43 @@
+[project]
+name = "py_rpn_calc"
+dynamic = ["version"]
+description = "RPN calculator in Python/Textual"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "Tammy Cravit", email = "tammy@tammymakesthings.com"}
+]
+maintainers = [
+    { name = "Tammy Cravit", email = "tammy@tammymakesthings.com"}
+]
+keywords = []
+dependencies = [
+    "textual",
+    "click",
+    "environs"
+]
+
+[project.urls]
+documentation = "https://github.com/tammymakesthings/rpn_calc_py"
+"Source code" = "https://github.com/tammymakesthings/rpn_calc_py"
+
+[project.gui-scripts]
+calc = "rpn_calc.cli:main"
+
+[tool.hatch.envs.hatch-test]
+default-args = ["tests"]
+extra-args = ["-v", "--strict"]
+extra-dependencies = [
+    "pytest-cov", 
+    "pytest-mock", 
+    "environs", 
+    "pytest-variables"
+]
+
+[tool.hatch.version]
+path = "src/rpn_calc/__version__.py"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
